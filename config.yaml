@@ -1,0 +1,18 @@
+site_title:  AD AI Metadata Demo
+templates:      $METACAT_SERVER_TEMPLATES_DIR
+port:           8080
+filters:
+    standard_filters: yes
+
+authentication:
+    secret: "qergQBGoYGq4gxAXaoryTgeI4ujcsPjEX3yu" # some random string
+    realm: metacat
+
+database:
+    port: 5432
+    host: localhost
+    user: metacat
+    password: metacatpassw0rd
+    dbname: metacat
+    schema: public
+
