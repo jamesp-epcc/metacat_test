@@ -1,0 +1,59 @@
+Application error
+'dataset' is undefined
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/webpie/WPApp.py", line 644, in wsgi_call
+    response = root_handler._handle_request(request, "", path_down, args)
+  File "/usr/local/lib/python3.10/site-packages/webpie/WPApp.py", line 437, in _handle_request
+    return subhandler._handle_request(request, path + "/" + word, path_down, args)
+  File "/usr/local/lib/python3.10/site-packages/webpie/WPApp.py", line 435, in _handle_request
+    return subhandler(request, relpath, **args)
+  File "/metacat/product/webserver/gui_handler.py", line 786, in create_dataset
+    return self.render_to_response("dataset.html", namespaces=namespaces, edit=False, create=True, mode="create")
+  File "/usr/local/lib/python3.10/site-packages/webpie/WPApp.py", line 301, in render_to_response
+    return Response(self.render_to_string(temp, **more_args))
+  File "/usr/local/lib/python3.10/site-packages/webpie/WPApp.py", line 293, in render_to_string
+    return self.App.render_to_string(temp, **params)
+  File "/usr/local/lib/python3.10/site-packages/webpie/WPApp.py", line 757, in render_to_string
+    return t.render(self.add_globals(kv))
+  File "/usr/local/lib/python3.10/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/usr/local/lib/python3.10/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "server/templates/dataset.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "server/templates/base.html", line 362, in top-level template code
+    
+{% block content %}{% endblock %}
+
+  File "server/templates/dataset.html", line 183, in block 'content'
+    {% if edit or dataset.FileMetaRequirements %}
+  File "/usr/local/lib/python3.10/site-packages/jinja2/environment.py", line 485, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'dataset' is undefined
+
+
+
+Application error
+object of type 'NoneType' has no len()
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/webpie/WPApp.py", line 644, in wsgi_call
+    response = root_handler._handle_request(request, "", path_down, args)
+  File "/usr/local/lib/python3.10/site-packages/webpie/WPApp.py", line 437, in _handle_request
+    return subhandler._handle_request(request, path + "/" + word, path_down, args)
+  File "/usr/local/lib/python3.10/site-packages/webpie/WPApp.py", line 437, in _handle_request
+    return subhandler._handle_request(request, path + "/" + word, path_down, args)
+  File "/usr/local/lib/python3.10/site-packages/webpie/WPApp.py", line 435, in _handle_request
+    return subhandler(request, relpath, **args)
+  File "/usr/local/lib/python3.10/site-packages/webpie/sanitizers.py", line 42, in decorated
+    return method(handler, request, relpath, *params, **args)
+  File "/metacat/product/webserver/gui_handler.py", line 167, in save
+    return self.do_create(me, request)
+  File "/metacat/product/webserver/gui_handler.py", line 134, in do_create
+    if DBParamCategory.exists(db, path):
+  File "/metacat/metacat/db/param_category.py", line 139, in exists
+    return DBParamCategory.get(db, path) != None
+  File "/metacat/metacat/common/dbbase.py", line 83, in get
+    assert len(pkvalues) == len(cls.PK)
+TypeError: object of type 'NoneType' has no len()
