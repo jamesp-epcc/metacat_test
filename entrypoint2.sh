@@ -8,7 +8,7 @@ su - -c "createdb metacat" postgres
 su - -c "psql -c \"CREATE USER metacat SUPERUSER PASSWORD 'metacatpassw0rd'\" metacat" postgres
 
 # initialise MetaCat database and create admin user
-export PYTHONPATH=/metacat/product
+export PYTHONPATH=/metacat:/metacat/wsdbtools
 cd /metacat/product/metacat/ui
 ./metacat admin -c /config/config.yaml init
 ./metacat admin -c /config/config.yaml create admin admin
@@ -37,7 +37,6 @@ cd ${home}
 
 export METACAT_SERVER_TEMPLATES_DIR=${home}/server/templates
 export METACAT_SERVER_CFG=${home}/config/config.yaml
-export PYTHONPATH=`pwd`:`pwd`/wsdbtools
 
 exec python -u server/Server.py
 
